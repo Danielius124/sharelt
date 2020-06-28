@@ -1,5 +1,7 @@
 package com.share.sharelt.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,11 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @JsonManagedReference
+    @OneToOne(mappedBy = "user", targetEntity = UserDetails.class, cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private UserDetails details;
 
     // Constructors, getters, setters
 
