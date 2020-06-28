@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemPricesServiceImpl implements ItemPricesService {
@@ -17,5 +18,21 @@ public class ItemPricesServiceImpl implements ItemPricesService {
     @Override
     public List<ItemPrices> findAll() {
         return itemPricesRepository.findAll();
+    }
+
+    @Override
+    public Optional<ItemPrices> findById(long theId) {
+
+        return itemPricesRepository.findById(theId);
+    }
+
+    @Override
+    public void save(ItemPrices itemPrices) {
+        itemPricesRepository.save(itemPrices);
+    }
+
+    @Override
+    public void delete(long theId) {
+        itemPricesRepository.deleteById(theId);
     }
 }
