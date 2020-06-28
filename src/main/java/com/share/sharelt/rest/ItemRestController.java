@@ -4,10 +4,7 @@ import com.share.sharelt.dao.ItemRepository;
 import com.share.sharelt.entity.Item;
 import com.share.sharelt.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,28 @@ public class ItemRestController {
     @GetMapping("/items/{itemId}")
     public Item findById(@PathVariable long itemId){
         return itemService.findById(itemId);
+    }
+
+    @PostMapping("/items")
+    public Item addItem(@RequestBody Item theItem){
+        theItem.setId(0);
+
+        itemService.save(theItem);
+
+        return theItem;
+    }
+
+    @PutMapping("/items")
+    public Item updateItem(@RequestBody Item theItem){
+        itemService.save(theItem);
+
+        return theItem;
+    }
+
+    @DeleteMapping("/items/{itemId}")
+    public String deleteBuilding(@PathVariable long itemId){
+        itemService.delete(itemId);
+
+        return "Building with id - " + itemId + " was successfully deleted!";
     }
 }
