@@ -8,6 +8,7 @@ public class ShareltApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShareltApplication.class, args);
+		System.out.println("LABAS");
 	}
 
 }
