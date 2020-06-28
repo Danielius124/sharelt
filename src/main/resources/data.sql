@@ -12,3 +12,9 @@ values(1004, 'Briedis', 'Puikiai vaziuojantis Briedis', 1564654165.25, 25.50);
 
 insert into users(id, email, password)
 values (1001, 'Petras@gmail.com', 'kads132');
+
+insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
+values (1, 3, 10, 1001);
+
+insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
+values (2, 7, 8, 1001);

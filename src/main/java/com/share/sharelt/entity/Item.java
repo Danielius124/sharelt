@@ -1,9 +1,14 @@
 package com.share.sharelt.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 @Table(name = "items")
 public class Item {
 
@@ -23,6 +28,12 @@ public class Item {
 
     @Column(name = "deposit")
     private double deposit;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "item", targetEntity = com.share.sharelt.entity.ItemPrices.class, cascade = CascadeType.ALL,
+    fetch = FetchType.EAGER)
+    @Column(nullable = true)
+    private List<ItemPrices> prices;
 
     // Constructors, getters, setters!!!
 

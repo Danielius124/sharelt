@@ -45,6 +45,6 @@ public class ItemRestController {
     public String deleteItem(@PathVariable long itemId){
         itemService.delete(itemId);
 
-        return "Building with id - " + itemId + " was successfully deleted!";
+        return "Item with id - " + itemId + " was successfully deleted!";
     }
 }
