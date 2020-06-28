@@ -5,5 +5,5 @@ import com.share.sharelt.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public List<User> findAll();
+    List<User> findAll();
 }

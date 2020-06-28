@@ -17,6 +17,10 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    // Constructors, getters, setters
+
+    public User(){}
+
     public User(String email, String password) {
         this.email = email;
         this.password = password;
