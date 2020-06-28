@@ -42,7 +42,7 @@ public class ItemRestController {
     }
 
     @DeleteMapping("/items/{itemId}")
-    public String deleteBuilding(@PathVariable long itemId){
+    public String deleteItem(@PathVariable long itemId){
         itemService.delete(itemId);
 
         return "Building with id - " + itemId + " was successfully deleted!";

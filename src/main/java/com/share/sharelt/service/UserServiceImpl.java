@@ -1,6 +1,7 @@
 package com.share.sharelt.service;
 
 import com.share.sharelt.dao.UserRepository;
+import com.share.sharelt.entity.Item;
 import com.share.sharelt.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,15 @@ public class UserServiceImpl implements UserService {
         }
 
         return theUser;
+    }
+
+    @Override
+    public void save(User theUser) {
+        userRepository.save(theUser);
+    }
+
+    @Override
+    public void delete(long theId) {
+        userRepository.deleteById(theId);
     }
 }
