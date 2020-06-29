@@ -1,6 +1,7 @@
 package com.share.sharelt.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -39,6 +40,11 @@ public class Item {
     @OneToMany(mappedBy = "item", targetEntity = ItemNonAvailability.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Column(nullable = true)
     private List<ItemNonAvailability> availabilities;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
     // Constructors, getters, setters!!!
 

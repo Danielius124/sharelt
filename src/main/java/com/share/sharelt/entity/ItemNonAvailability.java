@@ -1,12 +1,7 @@
 package com.share.sharelt.entity;
 
-<<<<<<< HEAD
-=======
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
->>>>>>> 7e53caa... ItemPrices update
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 

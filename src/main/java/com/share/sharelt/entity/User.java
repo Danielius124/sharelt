@@ -3,6 +3,7 @@ package com.share.sharelt.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -21,8 +22,13 @@ public class User {
 
     @JsonManagedReference
     @OneToOne(mappedBy = "user", targetEntity = UserDetails.class, cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     private UserDetails details;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", targetEntity = Item.class, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Item> items;
 
     // Constructors, getters, setters
 
