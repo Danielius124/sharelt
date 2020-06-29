@@ -22,5 +22,11 @@ values (2, 7, 8);
 insert into user_details(id, first_name, last_name, birth_date, phone_number, country, city, user_id)
 values(1001, 'Petras', 'Petrauskas', '1998-11-11', '+37061425111', 'Lietuva', 'Vilnius', 1001);
 
+insert into item_non_availability(id, begin_date, end_date, item_id)
+values (1, '2019-01-20', '2019-12-20', 1003);
+
+insert into item_non_availability(id, begin_date, end_date, item_id)
+values (2, '2020-01-20', '2020-12-20', 1003);
+
 insert into users(id, email, password)
 values (1002, 'Lukas@gmail.com', 'kiskis');

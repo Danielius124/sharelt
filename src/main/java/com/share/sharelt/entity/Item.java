@@ -31,9 +31,14 @@ public class Item {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "item", targetEntity = com.share.sharelt.entity.ItemPrices.class, cascade = CascadeType.ALL,
-    fetch = FetchType.EAGER)
+    fetch = FetchType.LAZY)
     @Column(nullable = true)
     private List<ItemPrices> prices;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "item", targetEntity = ItemNonAvailability.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(nullable = true)
+    private List<ItemNonAvailability> availabilities;
 
     // Constructors, getters, setters!!!
 

@@ -16,7 +16,7 @@ public class ItemPricesRestController {
     ItemPricesService itemPricesService;
 
     @GetMapping("/itemPrices")
-    public List<ItemPrices> findAllUsers(){
+    public List<ItemPrices> findAllPrices(){
         return  itemPricesService.findAll();
     }
 

@@ -34,7 +34,7 @@ public class UserDetails {
 
     @JsonBackReference
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = true)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     // Constructors, getters, setters

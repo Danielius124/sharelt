@@ -1,5 +1,10 @@
 package com.share.sharelt.entity;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+>>>>>>> 7e53caa... ItemPrices update
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,5 +19,16 @@ public class ItemNonAvailability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Date begin_date;
+    @Column(name = "begin_date")
+    private Date beginDate;
+
+    @Column(name = "end_date")
+    private Date endDate;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "item_id", nullable = true)
+    private Item item;
+
+    public ItemNonAvailability(){}
 }
