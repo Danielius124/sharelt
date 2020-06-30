@@ -46,6 +46,11 @@ public class Item {
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
+    @JsonManagedReference
+    @OneToOne(mappedBy = "item", targetEntity = ItemRental.class, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private ItemRental itemRental;
+
     // Constructors, getters, setters!!!
 
     public Item(){

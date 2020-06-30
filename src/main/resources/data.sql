@@ -33,5 +33,5 @@ values (1, '2019-01-20', '2019-12-20', 1003);
 insert into item_non_availability(id, begin_date, end_date, item_id)
 values (2, '2020-01-20', '2020-12-20', 1003);
 
-insert into item_rental(id, created, cost, rent_begin, rent_end, is_confirmed, renter_id)
-values (1, '2020-06-29', 1564.63551, '2020-06-29', '2020-06-29', 'false', 1002);
+insert into item_rental(id, created, cost, rent_begin, rent_end, is_confirmed, renter_id, item_id)
+values (1, '2020-06-29', 1564.63551, '2020-06-29', '2020-06-29', 'false', 1002, 1003);

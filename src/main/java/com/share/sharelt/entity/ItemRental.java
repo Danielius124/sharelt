@@ -33,11 +33,23 @@ public class ItemRental {
     private boolean isConfirmed;
 
 
-    @JsonBackReference
-    @JsonUnwrapped
+    @JsonProperty("renter_id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "renter_id", nullable = true)
     private User user;
+
+    @JsonProperty("item_id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "item_id", nullable = true)
+    private Item item;
+
+    @Column(name = "owner_id")
+    private long ownerId;
+
 
     public ItemRental(){};
 
