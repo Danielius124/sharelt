@@ -30,6 +30,11 @@ public class User {
             fetch = FetchType.LAZY)
     private List<Item> items;
 
+    @JsonManagedReference
+    @OneToOne(mappedBy = "user", targetEntity = ItemRental.class, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private ItemRental itemRental;
+
     // Constructors, getters, setters
 
     public User(){}
