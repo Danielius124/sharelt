@@ -11,6 +11,8 @@ public interface ItemPricesService {
 
     Optional<ItemPrices> findById(long theId);
 
+    List<ItemPrices> findByItemId(long itemId);
+
     void save(ItemPrices itemPrices);
 
     void delete(long theId);

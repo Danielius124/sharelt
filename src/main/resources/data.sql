@@ -26,6 +26,15 @@ values (1, 3, 10, 1004);
 insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
 values (2, 7, 8, 1003);
 
+insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
+values (3, 10, 5.548641, 1004);
+
+insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
+values (4, 6, 7, 1004);
+
+insert into ITEM_PRICES(id, minimum_days, day_price, item_id)
+values (5, 45, 3, 1004);
+
 
 insert into item_non_availability(id, begin_date, end_date, item_id)
 values (1, '2019-01-20', '2019-12-20', 1003);

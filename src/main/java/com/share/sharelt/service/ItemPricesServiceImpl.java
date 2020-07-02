@@ -27,6 +27,11 @@ public class ItemPricesServiceImpl implements ItemPricesService {
     }
 
     @Override
+    public List<ItemPrices> findByItemId(long itemId) {
+        return itemPricesRepository.findByItemId(itemId);
+    }
+
+    @Override
     public void save(ItemPrices itemPrices) {
         itemPricesRepository.save(itemPrices);
     }
