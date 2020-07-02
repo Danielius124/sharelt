@@ -1,10 +1,12 @@
 package com.share.sharelt.entity;
 
-import com.fasterxml.jackson.annotation.*;
+
 import lombok.Data;
+
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+
 import java.util.Date;
 
 @Entity
@@ -18,34 +20,25 @@ public class ItemRental {
     private long id;
 
     @Column(name = "created")
-    private Date created;
+    private String created;
 
     @Column(name = "cost")
     BigDecimal cost;
 
     @Column(name = "rent_begin")
-    private Date rentBegin;
+    private String rentBegin;
 
     @Column(name = "rent_end")
-    private Date rentEnd;
+    private String rentEnd;
 
     @Column(name = "is_confirmed")
     private boolean isConfirmed;
 
+    @Column(name = "renter_id")
+    private long renterId;
 
-    @JsonProperty("renter_id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "renter_id", nullable = true)
-    private User user;
-
-    @JsonProperty("item_id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_id", nullable = true)
-    private Item item;
+    @Column(name = "item_id")
+    private long itemID;
 
     @Column(name = "owner_id")
     private long ownerId;

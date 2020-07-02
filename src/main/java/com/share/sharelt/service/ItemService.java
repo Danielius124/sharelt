@@ -9,6 +9,8 @@ public interface ItemService {
 
     Item findById(long theId);
 
+    long findUserIdByItemId(long itemId);
+
     void save(Item theItem);
 
     void delete(long theId);

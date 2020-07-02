@@ -33,6 +33,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public long findUserIdByItemId(long itemId) {
+
+        return itemRepository.findUserIdByItemId(itemId);
+    }
+
+    @Override
     public void save(Item theItem) {
         itemRepository.save(theItem);
     }

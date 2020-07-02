@@ -14,5 +14,4 @@ public interface ItemRentalService {
 
     void delete(long theId);
 
-
 }

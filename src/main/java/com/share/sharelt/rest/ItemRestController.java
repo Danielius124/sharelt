@@ -25,6 +25,11 @@ public class ItemRestController {
         return itemService.findById(itemId);
     }
 
+    @GetMapping("/owner/{itemId}")
+    public long fingOwnerByItemId(@PathVariable long itemId){
+        return  itemService.findUserIdByItemId(itemId);
+    }
+
     @PostMapping("/items")
     public Item addItem(@RequestBody Item theItem){
         theItem.setId(0);
