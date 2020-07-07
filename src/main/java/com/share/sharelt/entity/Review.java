@@ -17,6 +17,9 @@ public class Review {
     @Column(name = "review_text")
     private String reviewText;
 
+    @Column(name = "rental_id")
+    private long rentalId;
+
     @Column(name = "item_id")
     private long itemId;
 
