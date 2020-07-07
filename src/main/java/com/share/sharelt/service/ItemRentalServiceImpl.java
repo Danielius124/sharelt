@@ -14,6 +14,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicLong;
+
 @Service
 public class ItemRentalServiceImpl implements ItemRentalService {
 
@@ -72,21 +74,22 @@ public class ItemRentalServiceImpl implements ItemRentalService {
     private void priceCalculator(ItemRental itemRental) {
 
         long rentalDaysToCalc = rentalTimeDays(itemRental);
-        int max = 0;
-        long maxId = 0;
+        final int[] max = {0};
+        final AtomicLong[] maxId = {new AtomicLong()};
         List<ItemPrices> itemPrices = itemPricesService.findByItemId(itemRental.getItemID());
-        for(ItemPrices x : itemPrices){
-            if(x.getDay() > max && rentalDaysToCalc >= x.getDay() ){
-                max = x.getDay();
-                maxId = x.getId();
+        itemPrices.stream()
+        .forEach(i ->{
+          if(i.getDay() > max[0] && rentalDaysToCalc >= i.getDay()){
+              max[0] = i.getDay();
+              maxId[0].set(i.getId());
             }
-        }
+        });
 
         BigDecimal costForRent;
 
-        costForRent = BigDecimal.valueOf(rentalDaysToCalc * (itemPricesService.findById(maxId).get().getPrice()));
+        costForRent = BigDecimal.valueOf(rentalDaysToCalc * (itemPricesService.findById(maxId[0].get()).get().getPrice()));
 
-        itemRental.setCost(costForRent.setScale(2,BigDecimal.ROUND_HALF_EVEN)); // cia bus kainos nustatymo logika!!
+        itemRental.setCost(costForRent.setScale(2,BigDecimal.ROUND_DOWN)); // cia bus kainos nustatymo logika!!
     }
 
 

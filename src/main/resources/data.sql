@@ -44,3 +44,6 @@ values (2, '2020-01-20', '2020-12-20', 1003);
 
 insert into item_rental(id, created, cost, rent_begin, rent_end, is_confirmed, renter_id, item_id, owner_id)
 values (1, '2020-06-29', 1564.63551, '2020-06-29', '2020-06-29', 'false', 1002, 1003, 10001);
+
+insert into reviews(review_id, item_id, owner_id, rate, renter_id, review_date, review_text)
+values (1, 1003, 10001, 4, 1002, '2020-07-07', 'Ziauriai zajabys nuomyte');

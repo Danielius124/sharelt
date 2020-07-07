@@ -47,4 +47,7 @@ public class UserRestController {
 
         return "User with id - " + userId + " was successfully deleted!";
     }
+
+    // TODO: 1.endpointo kuris grazina visus reviews apie useri
+
 }
