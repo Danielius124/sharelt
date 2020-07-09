@@ -44,6 +44,6 @@ public class ItemRental {
     private long ownerId;
 
 
-    public ItemRental(){};
-
+    public ItemRental(){}
+    
 }

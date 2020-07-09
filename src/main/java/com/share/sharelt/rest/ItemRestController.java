@@ -26,7 +26,7 @@ public class ItemRestController {
     }
 
     @GetMapping("/owner/{itemId}")
-    public long fingOwnerByItemId(@PathVariable long itemId){
+    public long findOwnerByItemId(@PathVariable long itemId){
         return  itemService.findUserIdByItemId(itemId);
     }
 

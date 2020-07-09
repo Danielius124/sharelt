@@ -105,4 +105,5 @@ public class UserDetails {
     public void setCity(String city) {
         this.city = city;
     }
+
 }

@@ -41,6 +41,7 @@ public class ItemRentalServiceImpl implements ItemRentalService {
         return itemRentalRepository.findById(theId);
     }
 
+
     @Override
     public void save(ItemRental itemRental) {
         itemRental.setCreated(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()));
