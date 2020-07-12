@@ -20,7 +20,7 @@ public class ItemPricesServiceImpl implements ItemPricesService {
     public List<ItemPrices> findAll() {
         List<ItemPrices> result = itemPricesRepository.findAll();
         if(result.isEmpty()) {
-            throw new ApiRequestException("Cannot found any prices");
+            throw new ApiRequestException("Cannot find any prices for any items.");
         }
         return result;
     }

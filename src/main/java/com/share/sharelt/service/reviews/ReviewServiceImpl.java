@@ -2,8 +2,10 @@ package com.share.sharelt.service.reviews;
 
 import com.share.sharelt.dao.items.ItemRentalRepository;
 import com.share.sharelt.dao.reviews.ReviewRepository;
+import com.share.sharelt.entity.items.Item;
 import com.share.sharelt.entity.items.ItemRental;
 import com.share.sharelt.entity.reviews.Review;
+import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Review> findAll() {
-        return reviewRepository.findAll();
+        List<Review> result = reviewRepository.findAll();
+        if(result.isEmpty()) {
+            throw new ApiRequestException("Cannot find any reviews.");
+        }
+        return result;
     }
 
     @Override

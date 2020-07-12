@@ -2,6 +2,8 @@ package com.share.sharelt.service.users;
 
 import com.share.sharelt.dao.users.UserRepository;
 import com.share.sharelt.entity.users.User;
+import com.share.sharelt.entity.users.UserDetails;
+import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return userRepository.findAll();
+        List<User> result = userRepository.findAll();
+        if(result.isEmpty()) {
+            throw new ApiRequestException("Cannot find any users.");
+        }
+        return result;
     }
 
     @Override

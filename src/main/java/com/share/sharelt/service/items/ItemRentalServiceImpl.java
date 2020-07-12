@@ -2,8 +2,10 @@ package com.share.sharelt.service.items;
 
 import com.share.sharelt.dao.items.ItemRentalRepository;
 import com.share.sharelt.dao.items.ItemRepository;
+import com.share.sharelt.entity.items.ItemNonAvailability;
 import com.share.sharelt.entity.items.ItemPrices;
 import com.share.sharelt.entity.items.ItemRental;
+import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +35,11 @@ public class ItemRentalServiceImpl implements ItemRentalService {
 
     @Override
     public List<ItemRental> findAll() {
-        return itemRentalRepository.findAll();
+        List<ItemRental> result = itemRentalRepository.findAll();
+        if(result.isEmpty()) {
+            throw new ApiRequestException("Cannot find any item rentals.");
+        }
+        return result;
     }
 
     @Override

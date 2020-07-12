@@ -1,7 +1,9 @@
 package com.share.sharelt.service.users;
 
 import com.share.sharelt.dao.users.UserDetailsRepository;
+import com.share.sharelt.entity.reviews.Review;
 import com.share.sharelt.entity.users.UserDetails;
+import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,11 @@ public class UserDetailsImpl implements UserDetailsService{
 
     @Override
     public List<UserDetails> findAll(){
-        return userDetailsRepository.findAll();
+        List<UserDetails> result = userDetailsRepository.findAll();
+        if(result.isEmpty()) {
+            throw new ApiRequestException("Cannot find any user details.");
+        }
+        return result;
     }
 
     @Override
