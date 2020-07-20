@@ -29,13 +29,12 @@ public class UserServiceImpl implements UserService {
     public User findById(long theId) {
         Optional<User> result = userRepository.findById(theId);
 
-        User theUser = null;
+        User user = null;
+        if(result.isPresent()){
+            user = result.get();
+        }else throw new ApiRequestException("Cannot find user with id: " + theId + "!");
 
-        if (result.isPresent()) {
-            theUser = result.get();
-        }
-
-        return theUser;
+        return user;
     }
 
     @Override

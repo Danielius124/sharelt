@@ -27,7 +27,7 @@ public class ReviewRestController {
     }
 
     @GetMapping("/reviews/{reviewId}")
-    public Optional<Review> findById(@PathVariable long reviewId){
+    public Review findById(@PathVariable long reviewId){
         if(reviewId < 0){
             throw new ApiRequestException("Id can't be negative.");
         }

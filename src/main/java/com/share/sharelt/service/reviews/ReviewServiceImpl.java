@@ -2,7 +2,6 @@ package com.share.sharelt.service.reviews;
 
 import com.share.sharelt.dao.items.ItemRentalRepository;
 import com.share.sharelt.dao.reviews.ReviewRepository;
-import com.share.sharelt.entity.items.Item;
 import com.share.sharelt.entity.items.ItemRental;
 import com.share.sharelt.entity.reviews.Review;
 import com.share.sharelt.exception.ApiRequestException;
@@ -33,8 +32,16 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Optional<Review> findById(long theId) {
-        return reviewRepository.findById(theId);
+    public Review findById(long theId) {
+        Optional<Review> result = reviewRepository.findById(theId);
+
+        Review review = null;
+        if(result.isPresent()){
+            review = result.get();
+        }else throw new ApiRequestException("Cannot find review with id: " + theId + "!!");
+
+        return review;
+
     }
 
     @Override

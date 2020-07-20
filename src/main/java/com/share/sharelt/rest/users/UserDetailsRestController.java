@@ -19,6 +19,11 @@ public class UserDetailsRestController {
         return  userDetailsService.findAll();
     }
 
+    @GetMapping("/userDetails/{userDetailsId}")
+    public UserDetails findById(@PathVariable long userDetailsId){
+        return userDetailsService.findById(userDetailsId);
+    }
+
     @PostMapping("/userDetails")
     public UserDetails addUserDetails(@RequestBody UserDetails userDetails){
         userDetails.setId(0);
