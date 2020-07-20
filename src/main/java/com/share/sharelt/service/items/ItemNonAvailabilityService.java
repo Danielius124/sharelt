@@ -8,7 +8,7 @@ public interface ItemNonAvailabilityService {
 
     List<ItemNonAvailability> findAll();
 
-    Optional<ItemNonAvailability> findById(long theId);
+    ItemNonAvailability findById(long theId);
 
     void save(ItemNonAvailability itemNonAvailability);
 

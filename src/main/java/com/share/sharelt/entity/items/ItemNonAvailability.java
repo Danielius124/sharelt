@@ -22,7 +22,7 @@ public class ItemNonAvailability {
     private Date endDate;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "item_id", nullable = true)
     private Item item;
 

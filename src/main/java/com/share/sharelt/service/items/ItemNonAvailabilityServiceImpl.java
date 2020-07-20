@@ -2,7 +2,6 @@ package com.share.sharelt.service.items;
 
 import com.share.sharelt.dao.items.ItemNonAvailabilityRepository;
 import com.share.sharelt.entity.items.ItemNonAvailability;
-import com.share.sharelt.entity.items.ItemPrices;
 import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +24,16 @@ public class ItemNonAvailabilityServiceImpl implements ItemNonAvailabilityServic
     }
 
     @Override
-    public Optional<ItemNonAvailability> findById(long theId) {
-        return itemNonAvailabilityRepository.findById(theId);
+    public ItemNonAvailability findById(long theId) {
+        Optional<ItemNonAvailability> result = itemNonAvailabilityRepository.findById(theId);
+
+        ItemNonAvailability itemNonAvailability = null;
+        if(result.isPresent()){
+            itemNonAvailability = result.get();
+        }else throw new ApiRequestException("Cannot find any rental with id: " + theId + "!!");
+
+
+        return itemNonAvailability;
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.share.sharelt.service.items;
 import com.share.sharelt.dao.items.ItemRepository;
 import com.share.sharelt.entity.items.Item;
 import com.share.sharelt.entity.items.ItemRental;
+import com.share.sharelt.entity.users.User;
 import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,16 +35,13 @@ public class ItemServiceImpl implements ItemService {
         if (result.isPresent()) {
             theItem = result.get();
         }
-        else throw new ApiRequestException("No item found!!!");
-
-
+        else throw new ApiRequestException("No item with id: " +  theId + " found!!!");
 
         return theItem;
     }
 
     @Override
     public long findUserIdByItemId(long itemId) {
-
         return itemRepository.findUserIdByItemId(itemId);
     }
 

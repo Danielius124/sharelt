@@ -22,7 +22,7 @@ public class ItemPrices {
     private double price;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "item_id", nullable = true)
     private Item item;
 

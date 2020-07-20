@@ -22,7 +22,7 @@ public class ItemRentalRestController {
     }
 
     @GetMapping("/rental/{rentalId}")
-    public Optional<ItemRental> findById(@PathVariable long rentalId){
+    public ItemRental findById(@PathVariable long rentalId){
         return itemRentalService.findById(rentalId);
     }
 

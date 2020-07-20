@@ -8,7 +8,7 @@ public interface ItemRentalService {
 
     List<ItemRental> findAll();
 
-    Optional<ItemRental> findById(long theId);
+    ItemRental findById(long theId);
 
     void save(ItemRental itemRental);
 

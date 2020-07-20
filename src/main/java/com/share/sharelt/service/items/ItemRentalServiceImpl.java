@@ -1,8 +1,6 @@
 package com.share.sharelt.service.items;
 
 import com.share.sharelt.dao.items.ItemRentalRepository;
-import com.share.sharelt.dao.items.ItemRepository;
-import com.share.sharelt.entity.items.ItemNonAvailability;
 import com.share.sharelt.entity.items.ItemPrices;
 import com.share.sharelt.entity.items.ItemRental;
 import com.share.sharelt.exception.ApiRequestException;
@@ -26,9 +24,6 @@ public class ItemRentalServiceImpl implements ItemRentalService {
 
     @Autowired
     ItemService itemService;
-    
-    @Autowired
-    ItemRepository itemRepository;
 
     @Autowired
     ItemPricesService itemPricesService;
@@ -43,8 +38,15 @@ public class ItemRentalServiceImpl implements ItemRentalService {
     }
 
     @Override
-    public Optional<ItemRental> findById(long theId) {
-        return itemRentalRepository.findById(theId);
+    public ItemRental findById(long theId) {
+        Optional<ItemRental> result = itemRentalRepository.findById(theId);
+
+        ItemRental itemRental = null;
+        if(result.isPresent()){
+            itemRental = result.get();
+        }else throw new ApiRequestException("Cannot find any rental with id: " + theId + "!!");
+
+        return itemRental;
     }
 
 
@@ -63,6 +65,7 @@ public class ItemRentalServiceImpl implements ItemRentalService {
 
     @Override
     public void delete(long theId) {
+        
         itemRentalRepository.deleteById(theId);
     }
 

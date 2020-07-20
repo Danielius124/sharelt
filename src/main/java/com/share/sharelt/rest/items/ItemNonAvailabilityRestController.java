@@ -22,7 +22,7 @@ public class ItemNonAvailabilityRestController {
 
 
     @GetMapping("/availability/{itemId}")
-    public Optional<ItemNonAvailability> findById(@PathVariable long itemId) {
+    public ItemNonAvailability findById(@PathVariable long itemId) {
         return itemNonAvailabilityService.findById(itemId);
 
     }
