@@ -25,6 +25,7 @@ public class ItemRental {
     @Column(name = "cost")
     BigDecimal cost;
 
+
     @Column(name = "rent_begin")
     private String rentBegin;
 

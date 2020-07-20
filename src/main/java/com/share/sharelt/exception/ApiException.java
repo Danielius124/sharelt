@@ -1,38 +1,16 @@
 package com.share.sharelt.exception;
 
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 import java.time.ZonedDateTime;
-
+@Data
 public class ApiException {
-    private final String message;
-    private final Throwable throwable;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime timestamp;
+    private int status;
 
-    public ApiException(String message,
-                        Throwable throwable,
-                        HttpStatus httpStatus,
-                        ZonedDateTime timestamp) {
-        this.message = message;
-        this.throwable = throwable;
-        this.httpStatus = httpStatus;
-        this.timestamp = timestamp;
-    }
+    private String message;
 
-    public String getMessage() {
-        return message;
-    }
+    private long timeStamp;
 
-    public Throwable getThrowable() {
-        return throwable;
-    }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
-    public ZonedDateTime getTimestamp() {
-        return timestamp;
-    }
 }

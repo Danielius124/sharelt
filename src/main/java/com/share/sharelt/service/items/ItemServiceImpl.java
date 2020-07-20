@@ -34,6 +34,9 @@ public class ItemServiceImpl implements ItemService {
         if (result.isPresent()) {
             theItem = result.get();
         }
+        else throw new ApiRequestException("No item found!!!");
+
+
 
         return theItem;
     }

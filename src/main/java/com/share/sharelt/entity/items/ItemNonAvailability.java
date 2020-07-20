@@ -17,6 +17,7 @@ public class ItemNonAvailability {
     @Column(name = "begin_date")
     private Date beginDate;
 
+
     @Column(name = "end_date")
     private Date endDate;
 

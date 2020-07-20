@@ -31,6 +31,11 @@ public class ItemNonAvailabilityServiceImpl implements ItemNonAvailabilityServic
 
     @Override
     public void save(ItemNonAvailability itemNonAvailability) {
+        ItemNonAvailability result = itemNonAvailability;
+        if(result.equals(null)){
+            throw new ApiRequestException("");
+        }
+
         itemNonAvailabilityRepository.save(itemNonAvailability);
     }
 
