@@ -48,8 +48,6 @@ public class Item {
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-
-
     public Item(){
 
     }

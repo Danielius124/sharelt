@@ -47,3 +47,39 @@ values (1, '2020-06-29', 1564.63551, '2020-06-29', '2020-06-29', 'false', 1002, 
 
 insert into reviews(review_id, item_id, owner_id, rate, renter_id, review_date, review_text, rental_id)
 values (1, 1003, 10001, 4, 1002, '2020-07-07', 'Ziauriai zajabys nuomyte', 1);
+
+
+INSERT INTO category(title)
+VALUES('Electronics');
+
+INSERT INTO category(title,parent_id)
+VALUES('Laptops & PC',1);
+
+INSERT INTO category(title,parent_id)
+VALUES('Laptops',2);
+INSERT INTO category(title,parent_id)
+VALUES('PC',2);
+
+INSERT INTO category(title,parent_id)
+VALUES('Cameras & photo',1);
+INSERT INTO category(title,parent_id)
+VALUES('Camera',5);
+
+INSERT INTO category(title,parent_id)
+VALUES('Phones & Accessories',1);
+INSERT INTO category(title,parent_id)
+VALUES('Smartphones',7);
+
+INSERT INTO category(title,parent_id)
+VALUES('Android',8);
+INSERT INTO category(title,parent_id)
+VALUES('iOS',8);
+INSERT INTO category(title,parent_id)
+VALUES('Other Smartphones',8);
+
+INSERT INTO category(title,parent_id)
+VALUES('Batteries',7);
+INSERT INTO category(title,parent_id)
+VALUES('Headsets',7);
+INSERT INTO category(title,parent_id)
+VALUES('Screen Protectors',7);

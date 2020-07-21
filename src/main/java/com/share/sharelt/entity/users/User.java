@@ -2,11 +2,14 @@ package com.share.sharelt.entity.users;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.share.sharelt.entity.items.Item;
+import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.*;
 
 @Entity
+@Data
 @Table(name = "users")
 public class User {
 
@@ -15,6 +18,7 @@ public class User {
     @Column(name = "id")
     private long id;
 
+    @Email
     @Column(name = "email")
     private String email;
 
@@ -31,43 +35,12 @@ public class User {
             fetch = FetchType.LAZY)
     private List<Item> items;
 
-//    @JsonManagedReference
-//    @OneToOne(mappedBy = "renter_id", targetEntity = ItemRental.class, cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY)
-//    private ItemRental itemRental;
+
 
     // Constructors, getters, setters
 
     public User(){}
 
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
