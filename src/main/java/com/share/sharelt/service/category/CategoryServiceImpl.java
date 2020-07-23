@@ -41,18 +41,13 @@ public class CategoryServiceImpl implements CategoryService{
         Optional<Category> result = categoryRepository.findById(theId);
         List<Category> categories = new ArrayList<>();
         long tarpId = theId;
-        while(result.get().getParentId() != null){
-            categories.add(result.get());
-            tarpId = result.get().getParentId();
-            categoryRepository.findById(tarpId);
-        }
-        result = categoryRepository.findById(tarpId);
         categories.add(result.get());
-
-
-        if(categories == null){
-            throw new ApiRequestException("No categories found");
+        while(result.get().getParentId() != null){
+            tarpId = result.get().getParentId();
+            result = categoryRepository.findById(tarpId);
+            categories.add(result.get());
         }
+
         return categories;
     }
 }
