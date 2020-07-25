@@ -2,10 +2,12 @@ package com.share.sharelt.entity.users;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.share.sharelt.entity.items.Item;
+import com.share.sharelt.validations.user.ValidPassword;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 @Entity
@@ -19,9 +21,12 @@ public class User {
     private long id;
 
     @Email
+    @NotEmpty
     @Column(name = "email")
     private String email;
 
+    @NotEmpty
+    @ValidPassword
     @Column(name = "password")
     private String password;
 

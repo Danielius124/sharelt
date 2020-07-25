@@ -5,6 +5,7 @@ import com.share.sharelt.service.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class UserRestController {
     }
 
     @PostMapping("/users")
-    public User addUser(@RequestBody User theUser){
+    public User addUser(@Valid @RequestBody User theUser){
         theUser.setId(0);
 
         userService.save(theUser);
@@ -34,7 +35,7 @@ public class UserRestController {
     }
 
     @PutMapping("/users")
-    public User updateUser(@RequestBody User theUser){
+    public User updateUser(@Valid @RequestBody User theUser){
         userService.save(theUser);
 
         return theUser;
