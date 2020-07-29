@@ -4,6 +4,7 @@ import java.util.Arrays;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.share.sharelt.exception.ApiException;
 import org.passay.AlphabeticalSequenceRule;
 import org.passay.DigitCharacterRule;
 import org.passay.LengthRule;
@@ -30,10 +31,6 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
         String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,35}";
         if(password.matches(pattern) == false){
-            context.disableDefaultConstraintViolation();
-            context
-                    .buildConstraintViolationWithTemplate("Your password " + password + "is incorrect!")
-                    .addConstraintViolation();
             return false;
         }
         return true;

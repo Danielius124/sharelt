@@ -5,6 +5,7 @@ import com.share.sharelt.service.items.ItemNonAvailabilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.*;
 
 
@@ -28,7 +29,7 @@ public class ItemNonAvailabilityRestController {
     }
 
     @PostMapping("/availability")
-    public ItemNonAvailability addAvailability(@RequestBody ItemNonAvailability itemNonAvailability){
+    public ItemNonAvailability addAvailability(@Valid @RequestBody ItemNonAvailability itemNonAvailability){
         itemNonAvailability.setId(0);
 
         itemNonAvailabilityService.save(itemNonAvailability);
@@ -37,7 +38,7 @@ public class ItemNonAvailabilityRestController {
     }
 
     @PutMapping("/availability")
-    public ItemNonAvailability updateAvailability(@RequestBody ItemNonAvailability itemNonAvailability){
+    public ItemNonAvailability updateAvailability(@Valid @RequestBody ItemNonAvailability itemNonAvailability){
         itemNonAvailabilityService.save(itemNonAvailability);
 
         return itemNonAvailability;

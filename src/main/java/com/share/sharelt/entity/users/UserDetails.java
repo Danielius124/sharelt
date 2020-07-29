@@ -28,7 +28,7 @@ public class UserDetails {
 
     @NotEmpty
     @Column(name = "birth_date")
-    private Date birth_date;
+    private String birth_date;
 
     @NotEmpty
     @ValidPhone

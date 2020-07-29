@@ -80,7 +80,6 @@ public class ItemRentalServiceImpl implements ItemRentalService {
         return rentalDays;
     }
 
-    // SLIAUKA REIKES DARYTI Su STREAM
     private void priceCalculator(ItemRental itemRental) {
 
         long rentalDaysToCalc = rentalTimeDays(itemRental);

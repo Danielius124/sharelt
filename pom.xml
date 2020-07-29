@@ -91,6 +91,12 @@
 			<artifactId>guava</artifactId>
 			<version>29.0-jre</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber -->
+		<dependency>
+			<groupId>com.googlecode.libphonenumber</groupId>
+			<artifactId>libphonenumber</artifactId>
+			<version>8.12.7</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

@@ -7,6 +7,7 @@ import com.share.sharelt.entity.users.User;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -18,17 +19,21 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
+    @Size(min = 5, max = 45)
     @Column(name = "item_name")
     private String itemName;
 
+    @NotEmpty
     @Column(name = "description")
     private String description;
 
+    @NotEmpty
     @Column(name = "item_value")
     private double itemValue;
 
+    @NotEmpty
     @Column(name = "deposit")
     private double deposit;
 

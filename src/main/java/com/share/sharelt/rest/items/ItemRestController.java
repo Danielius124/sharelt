@@ -5,6 +5,7 @@ import com.share.sharelt.service.items.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,8 +31,8 @@ public class ItemRestController {
     }
 
     @PostMapping("/items")
-    public Item addItem(@RequestBody Item theItem){
-        theItem.setId(0);
+    public Item addItem(@Valid @RequestBody Item theItem){
+        theItem.setId((long) 0);
 
         itemService.save(theItem);
 
