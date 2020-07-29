@@ -4,7 +4,7 @@ package com.share.sharelt.validations.user;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class PhoneValidationWIthGooglelibphonenumberAPI implements ConstraintValidator<ValidPhone, String> {
+public class PhoneConstraintValidator implements ConstraintValidator<ValidPhone, String> {
 
 
     @Override

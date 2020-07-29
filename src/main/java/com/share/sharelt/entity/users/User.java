@@ -24,8 +24,7 @@ public class User {
     @NotEmpty
     @Column(name = "email")
     private String email;
-
-    @NotEmpty
+    
     @ValidPassword
     @Column(name = "password")
     private String password;
