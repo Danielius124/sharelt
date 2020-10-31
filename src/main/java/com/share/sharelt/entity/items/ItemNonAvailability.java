@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "item_non_availability")
 public class ItemNonAvailability {
 
@@ -31,35 +32,5 @@ public class ItemNonAvailability {
 
     public ItemNonAvailability(){}
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getBeginDate() {
-        return beginDate;
-    }
-
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
 }

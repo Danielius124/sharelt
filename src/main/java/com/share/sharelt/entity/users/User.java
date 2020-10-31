@@ -2,8 +2,6 @@ package com.share.sharelt.entity.users;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.share.sharelt.entity.items.Item;
-import com.share.sharelt.validations.user.ValidPassword;
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -24,7 +22,6 @@ public class User {
     @Column(name = "email")
     private String email;
     
-    @ValidPassword
     @Column(name = "password")
     private String password;
 
