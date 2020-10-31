@@ -15,14 +15,15 @@ public class ItemRestController {
     @Autowired
     ItemService itemService;
 
-    @GetMapping("/items")
-    public List<Item> findAllUsers(){
-        return  itemService.findAll();
-    }
 
     @GetMapping("/items/{itemId}")
     public Item findById(@PathVariable long itemId){
         return itemService.findById(itemId);
+    }
+
+    @GetMapping("/items")
+    public Iterable<Item> getAllItems(){
+        return itemService.findAll();
     }
 
     @GetMapping("/owner/{itemId}")

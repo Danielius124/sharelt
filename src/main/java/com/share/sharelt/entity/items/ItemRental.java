@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Data
 @Table(name = "item_rental")
 public class ItemRental {
 
@@ -46,5 +45,76 @@ public class ItemRental {
 
 
     public ItemRental(){}
-    
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
+    }
+
+    public String getRentBegin() {
+        return rentBegin;
+    }
+
+    public void setRentBegin(String rentBegin) {
+        this.rentBegin = rentBegin;
+    }
+
+    public String getRentEnd() {
+        return rentEnd;
+    }
+
+    public void setRentEnd(String rentEnd) {
+        this.rentEnd = rentEnd;
+    }
+
+    public boolean isConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        isConfirmed = confirmed;
+    }
+
+    public long getRenterId() {
+        return renterId;
+    }
+
+    public void setRenterId(long renterId) {
+        this.renterId = renterId;
+    }
+
+    public long getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(long itemID) {
+        this.itemID = itemID;
+    }
+
+    public long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(long ownerId) {
+        this.ownerId = ownerId;
+    }
 }

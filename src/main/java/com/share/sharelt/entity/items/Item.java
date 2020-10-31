@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "items")
 public class Item {
 
@@ -57,4 +56,67 @@ public class Item {
 
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getItemValue() {
+        return itemValue;
+    }
+
+    public void setItemValue(double itemValue) {
+        this.itemValue = itemValue;
+    }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
+    }
+
+    public List<ItemPrices> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<ItemPrices> prices) {
+        this.prices = prices;
+    }
+
+    public List<ItemNonAvailability> getAvailabilities() {
+        return availabilities;
+    }
+
+    public void setAvailabilities(List<ItemNonAvailability> availabilities) {
+        this.availabilities = availabilities;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
