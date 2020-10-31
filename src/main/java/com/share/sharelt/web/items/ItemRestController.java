@@ -27,7 +27,7 @@ public class ItemRestController {
     public ResponseEntity<Item> findItemById(@PathVariable long itemId){
 
         Item item = itemService.findByItemId(itemId);
-
+        int a =0;
         return new ResponseEntity<Item>(item, HttpStatus.OK);
     }
 
