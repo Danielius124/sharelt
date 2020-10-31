@@ -3,54 +3,65 @@ package com.share.sharelt.rest.items;
 import com.share.sharelt.entity.items.Item;
 import com.share.sharelt.service.items.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/items")
 public class ItemRestController {
 
     @Autowired
     ItemService itemService;
 
-
-    @GetMapping("/items/{itemId}")
-    public Item findById(@PathVariable long itemId){
-        return itemService.findById(itemId);
-    }
-
-    @GetMapping("/items")
+    @GetMapping()
     public Iterable<Item> getAllItems(){
+
         return itemService.findAll();
     }
 
-    @GetMapping("/owner/{itemId}")
+    @GetMapping("/{itemId}")
+    public ResponseEntity<Item> findItemById(@PathVariable long itemId){
+
+        Item item = itemService.findByItemId(itemId);
+
+        return new ResponseEntity<Item>(item, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/owner/{itemId}") //TODO Klausimas ar reikalingas
     public long findOwnerByItemId(@PathVariable long itemId){
         return  itemService.findUserIdByItemId(itemId);
     }
 
     @PostMapping("/items")
-    public Item addItem(@Valid @RequestBody Item theItem){
-        theItem.setId((long) 0);
+    public ResponseEntity<?> addItem(@Valid @RequestBody Item theItem, BindingResult result){
 
-        itemService.save(theItem);
+        //TODO VALIDATIONS
 
-        return theItem;
+        Item item1 = itemService.save(theItem);
+
+        return new ResponseEntity<Item>(item1, HttpStatus.OK);
     }
 
-    @PutMapping("/items")
-    public Item updateItem(@RequestBody Item theItem){
+    @PatchMapping("/items")
+    public ResponseEntity<Item> updateItem(@RequestBody Item theItem){
         itemService.save(theItem);
 
-        return theItem;
+        return new ResponseEntity<Item>(theItem, HttpStatus.OK);
     }
 
     @DeleteMapping("/items/{itemId}")
-    public String deleteItem(@PathVariable long itemId){
+    public ResponseEntity<?> deleteItem(@PathVariable long itemId){
         itemService.delete(itemId);
 
-        return "Item with id - " + itemId + " was successfully deleted!";
+        return new ResponseEntity<String>("Item with id: "+itemId+" was deleted successfully", HttpStatus.OK);
     }
 }

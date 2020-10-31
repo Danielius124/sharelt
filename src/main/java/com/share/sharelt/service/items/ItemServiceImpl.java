@@ -2,8 +2,6 @@ package com.share.sharelt.service.items;
 
 import com.share.sharelt.dao.items.ItemRepository;
 import com.share.sharelt.entity.items.Item;
-import com.share.sharelt.entity.items.ItemRental;
-import com.share.sharelt.entity.users.User;
 import com.share.sharelt.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item findById(long theId) {
+    public Item findByItemId(long theId) {
         Optional<Item> result = itemRepository.findById(theId);
 
         Item theItem = null;
@@ -46,8 +44,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void save(Item theItem) {
+    public Item save(Item theItem) {
         itemRepository.save(theItem);
+        return theItem;
     }
 
     @Override

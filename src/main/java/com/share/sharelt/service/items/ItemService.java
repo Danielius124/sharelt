@@ -7,11 +7,11 @@ import java.util.List;
 public interface ItemService {
     List<Item> findAll();
 
-    Item findById(long theId);
+    Item findByItemId(long theId);
 
     long findUserIdByItemId(long itemId);
 
-    void save(Item theItem);
+    Item save(Item theItem);
 
     void delete(long theId);
 }
